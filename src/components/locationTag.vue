@@ -1,7 +1,7 @@
 <template>
   <div class="locationTag_container">
     <div class="locationTag_tag">
-      <img src="../assets/hashtag.png" alt="" />{{ tag.tagName }}
+      <img src="../assets/hashtag.png" alt="" />{{ tag }}
     </div>
     <div class="locationTag_btn">
       <img
@@ -17,10 +17,10 @@
 
 <script>
 export default {
-  props: ['tag', 'isUpdate'],
+  props: ["tag", "isUpdate"],
   methods: {
     deleteTag(tag) {
-      this.$store.dispatch('deleteTag', tag);
+      this.$store.dispatch("deleteTag", tag);
     },
   },
 };
@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
 .locationTag_container {
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 600;
   font-size: 14px;

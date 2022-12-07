@@ -35,7 +35,7 @@
 
 <script>
 export default {
-  props: ['post', 'tag'],
+  props: ["post", "tag"],
   data() {
     return {
       // members: [0, 0, 0],
@@ -43,17 +43,16 @@ export default {
   },
   methods: {
     getTitleHead() {
-      return this.post.title.split('-')[0];
+      return this.post.title.split("-")[0];
     },
     getTitleBody() {
-      return this.post.title.split('-')[1];
+      return this.post.title.split("-")[1];
     },
     getPost() {
       this.$router.push({
-        name: 'post',
+        name: "post",
         params: {
-          tag: this.tag,
-          post_id: this.post.post_id,
+          id: this.post.postId,
         },
       });
     },
@@ -100,7 +99,7 @@ export default {
   /* left: 105.29px; */
   /* top: 96.73px; */
 
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 8px;
@@ -126,7 +125,7 @@ export default {
   /* left: 67.15px; */
   /* top: 116.17px; */
 
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
@@ -144,7 +143,7 @@ export default {
   /* left: 66.78px; */
   /* top: 137.49px; */
 
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 8px;
@@ -153,7 +152,7 @@ export default {
   color: #000000;
 }
 .post_member {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 8px;

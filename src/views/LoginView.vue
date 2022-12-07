@@ -14,9 +14,6 @@
         카카오톡으로 로그인하기
       </div></button
     ><br />
-    <button @click="test1">test1</button><br />
-    <button @click="test2">test2</button><br />
-    <button @click="test3">test3</button><br />
     <a
       href="https://kauth.kakao.com/oauth/authorize?client_id=71e0a176033c8ff1373036d34e7a32ac&redirect_uri=http://localhost:8080/auth/kakao/callback&response_type=code"
     >
@@ -29,20 +26,11 @@
 // @ is an alias to /src
 
 export default {
-  name: 'LoginView',
+  name: "LoginView",
   components: {},
   methods: {
     doLogin() {
-      this.$store.dispatch('doLogin');
-    },
-    test1() {
-      this.$store.dispatch('test1');
-    },
-    test2() {
-      this.$store.dispatch('test2');
-    },
-    test3() {
-      this.$store.dispatch('test3');
+      window.location.href = "http://localhost:8080/auth/";
     },
   },
 };
@@ -85,7 +73,7 @@ export default {
   /* top: 367px; */
   margin-top: 47px;
 
-  font-family: 'BM HANNA_TTF';
+  font-family: "BM HANNA_TTF";
   font-style: normal;
   font-weight: 400;
   font-size: 50px;

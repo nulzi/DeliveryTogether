@@ -58,10 +58,10 @@
 </template>
 
 <script>
-import navBar from '../components/navBar.vue';
+import navBar from "../components/navBar.vue";
 
 export default {
-  name: 'PostView',
+  name: "PostView",
   components: {
     navBar,
   },
@@ -82,11 +82,13 @@ export default {
     //   }
     // },
     postTogether(chatUrl) {
-      this.$store.dispatch('postTogether', chatUrl);
+      this.$store.dispatch("postTogether", chatUrl);
     },
   },
   created() {
     // this.setPost();
+    console.log("postView");
+    this.$store.dispatch("getPost", this.$route.params.id);
   },
 };
 </script>
@@ -115,7 +117,7 @@ export default {
 .postview_detail {
   margin: 5px 0px 10px;
 
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -127,7 +129,7 @@ export default {
   color: #000000;
 }
 .postview_info_url {
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -147,7 +149,7 @@ export default {
   border-radius: 10px;
 }
 .postview_title {
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -158,7 +160,7 @@ export default {
   color: #000000;
 }
 .postview_writer {
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
@@ -174,7 +176,7 @@ export default {
   width: 315px;
   align-self: center;
 
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;

@@ -1,0 +1,118 @@
+{
+  "userId": 7,
+  "access_token": "jli2ToK0OHceN2ZL1O8GMnDGqQ320iqgL8eGpTzSCj10lwAAAYTtuspg",
+  "metaPostDTOS": [
+    {
+      "tagName": "1기숙사",
+      "postTagSearchDTOS": {
+        "content": [
+          {
+            "postId": 14,
+            "title": "삽겹살-새마을식당",
+            "count": 1,
+            "picture": "/static/img/food02.fab138ac.jpg"
+          },
+          {
+            "postId": 18,
+            "title": "분식-아딸",
+            "count": 1,
+            "picture": "/static/img/food00.c04141eb.jpg"
+          },
+          {
+            "postId": 22,
+            "title": "한식-냉면집",
+            "count": 1,
+            "picture": "/static/img/food01.a7fa4143.jpg"
+          },
+          {
+            "postId": 17,
+            "title": "일식-이치란",
+            "count": 1,
+            "picture": "/static/img/food07.8abcd559.jpg"
+          }
+        ],
+        "pageable": {
+          "sort": {
+            "empty": true,
+            "sorted": false,
+            "unsorted": true
+          },
+          "offset": 0,
+          "pageNumber": 0,
+          "pageSize": 10,
+          "unpaged": false,
+          "paged": true
+        },
+        "last": true,
+        "totalPages": 1,
+        "totalElements": 4,
+        "size": 10,
+        "number": 0,
+        "sort": {
+          "empty": true,
+          "sorted": false,
+          "unsorted": true
+        },
+        "first": true,
+        "numberOfElements": 4,
+        "empty": false
+      }
+    },
+    {
+      "tagName": "벙커",
+      "postTagSearchDTOS": {
+        "content": [
+          {
+            "postId": 16,
+            "title": "치킨집-푸라닭",
+            "count": 1,
+            "picture": "/static/img/food18.9140d572.jpg"
+          },
+          {
+            "postId": 20,
+            "title": "중식-중화루",
+            "count": 1,
+            "picture": "/static/img/food14.db3f2187.jpg"
+          },
+          {
+            "postId": 24,
+            "title": "양식-마이야르",
+            "count": 1,
+            "picture": "/static/img/food20.9bf13585.jpg"
+          },
+          {
+            "postId": 19,
+            "title": "중식-중화루",
+            "count": 1,
+            "picture": "/static/img/food13.4c2e5541.jpg"
+          }
+        ],
+        "pageable": {
+          "sort": {
+            "empty": true,
+            "sorted": false,
+            "unsorted": true
+          },
+          "offset": 0,
+          "pageNumber": 0,
+          "pageSize": 10,
+          "unpaged": false,
+          "paged": true
+        },
+        "last": true,
+        "totalPages": 1,
+        "totalElements": 4,
+        "size": 10,
+        "number": 0,
+        "sort": {
+          "empty": true,
+          "sorted": false,
+          "unsorted": true
+        },
+        "first": true,
+        "numberOfElements": 4,
+        "empty": false
+      }
+    }
+  ]
+}

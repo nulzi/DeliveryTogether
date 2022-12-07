@@ -1,13 +1,44 @@
 <template>
-  <!-- <nav>
-    <router-link to="/">Login</router-link> |
-    <router-link to="/main">Main</router-link>
-  </nav> -->
   <router-view />
+  <!-- {{ this.setData() }} -->
+  <!-- {{ data.metaPostDTOS }} -->
+  <!-- {{ $store.state.mainPost }} -->
+  <!-- {{ $store.state.post }} -->
 </template>
 
 <script>
+import data from "./assets/data.json";
 export default {
+  data() {
+    return {
+      data,
+    };
+  },
+  methods: {
+    setData() {
+      let post = [];
+      let posts = [];
+      console.log(Object.keys(this.data.metaPostDTOS));
+      for (let i in Object.keys(this.data)) {
+        console.log(i);
+      }
+      // console.log(this.data);
+
+      for (let i in Object.keys(this.data.metaPostDTOS)) {
+        // keys: 0, 1
+        for (let j in this.data.metaPostDTOS[i].postTagSearchDTOS.content) {
+          // j :
+
+          posts.push(this.data.metaPostDTOS[i].postTagSearchDTOS.content[j]);
+        }
+        post.push({
+          tag: this.data.metaPostDTOS[i].tagName,
+          posts: posts,
+        });
+      }
+      this.$store.commit("setMainPost", post);
+    },
+  },
   //copied
   created() {
     // console.log('app.vue created()');

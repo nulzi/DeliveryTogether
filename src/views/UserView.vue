@@ -5,7 +5,7 @@
       <div class="userView_user">
         <div id="profile" class="userView_circle"></div>
         <div class="userView_name">
-          {{ this.$store.state.user.userDTO.nickname }}
+          {{ this.$store.state.user.userDTO.name }}
         </div>
       </div>
     </div>
@@ -14,7 +14,7 @@
       :key="i"
       class="userView_tag_container"
     >
-      <locationTag :tag="tag"></locationTag>
+      <locationTag :tag="tag.tagName"></locationTag>
       <!-- <div class="userView_member">
         <img src="../assets/user.png" alt="" width="16" height="16" />
         600명
@@ -29,14 +29,14 @@
 </template>
 
 <script>
-import navBar from '../components/navBar.vue';
-import locationTag from '../components/locationTag.vue';
+import navBar from "../components/navBar.vue";
+import locationTag from "../components/locationTag.vue";
 
 export default {
-  name: 'UserView',
+  name: "UserView",
   data() {
     return {
-      profile_image: '',
+      profile_image: "",
     };
   },
   components: {
@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     setProfile() {
-      const profile = document.getElementById('profile');
+      const profile = document.getElementById("profile");
       profile.style.backgroundImage = this.$store.state.user.profile_image;
     },
   },
@@ -61,7 +61,7 @@ export default {
   width: 100vw;
 }
 .userView_user {
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 25px;
@@ -84,7 +84,7 @@ export default {
   /* top: 70px; */
 
   background: #020715 no-repeat center;
-  background-image: url('../assets/user.png');
+  background-image: url("../assets/user.png");
   border-radius: 63px;
 }
 .userView_tag_container {

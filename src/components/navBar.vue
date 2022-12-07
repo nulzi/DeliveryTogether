@@ -23,10 +23,10 @@
 export default {
   methods: {
     getMain() {
-      this.$store.dispatch('getMain');
+      this.$router.push({ name: "post-amu" });
     },
     getUser() {
-      this.$store.dispatch('getUser');
+      this.$store.dispatch("getUser");
     },
   },
 };

@@ -2,7 +2,7 @@
   <div class="mainView_container">
     <navBar></navBar>
     <div
-      v-for="(total, i) in $store.state.post"
+      v-for="(total, i) in $store.state.mainPost"
       :key="i"
       class="mainView_post_container"
     >
@@ -14,7 +14,8 @@
             :key="j"
             :post="post"
             :tag="total.tag"
-          ></post>
+          >
+          </post>
         </div>
         <!-- <div class="mainView_post_content_row">
           <post
@@ -39,12 +40,12 @@
 </template>
 
 <script>
-import navBar from '../components/navBar.vue';
-import locationTag from '../components/locationTag.vue';
-import post from '../components/post.vue';
+import navBar from "../components/navBar.vue";
+import locationTag from "../components/locationTag.vue";
+import post from "../components/post.vue";
 
 export default {
-  name: 'MainView',
+  name: "MainView",
   components: {
     navBar,
     locationTag,
@@ -52,11 +53,12 @@ export default {
   },
   methods: {
     getFood() {
-      this.$store.dispatch('getFoods');
+      this.$store.dispatch("getFoods");
     },
   },
   created() {
-    console.log('main created()');
+    console.log("main created()");
+    this.$store.dispatch("getMain", this.$route.params.tag);
   },
 };
 </script>
