@@ -1,7 +1,7 @@
 <template>
-  <div class="post_container">
+  <div class="post_container" @click="getPost">
     <img
-      src="../assets/chicken1.png"
+      :src="post.picture"
       alt=""
       class="post_food_img"
       width="50"
@@ -10,23 +10,24 @@
     <div class="post_content">
       <div class="post_timer">
         <div class="post_timer_circle"></div>
-        30분 후
+        <!-- {{ post.time }}분 후 -->
       </div>
-      <p class="post_food">치킨</p>
-      <p class="post_storename">굽네치킨</p>
+      <p class="post_food">{{ getTitleHead() }}</p>
+      <p class="post_storename">{{ getTitleBody() }}</p>
       <div class="post_member">
-        <img
-          v-for="(member, index) in this.members"
-          :key="index"
-          class="post_member_img"
-          src="../assets/member-circle-brown.png"
-          alt=""
-        />
-        <img
-          class="post_member_img"
-          src="../assets/member-circle-red.png"
-          alt=""
-        />
+        <!-- <img
+            v-for="(member, index) in this.members"
+            :key="index"
+            class="post_member_img"
+            src="../assets/member-circle-brown.png"
+            alt=""
+          />
+          <img
+            class="post_member_img"
+            src="../assets/member-circle-red.png"
+            alt=""
+          /> -->
+        {{ post.count }}/4
       </div>
     </div>
   </div>
@@ -34,10 +35,28 @@
 
 <script>
 export default {
+  props: ['post', 'tag'],
   data() {
     return {
-      members: [0, 0, 0],
+      // members: [0, 0, 0],
     };
+  },
+  methods: {
+    getTitleHead() {
+      return this.post.title.split('-')[0];
+    },
+    getTitleBody() {
+      return this.post.title.split('-')[1];
+    },
+    getPost() {
+      this.$router.push({
+        name: 'post',
+        params: {
+          tag: this.tag,
+          post_id: this.post.post_id,
+        },
+      });
+    },
   },
 };
 </script>
@@ -134,6 +153,14 @@ export default {
   color: #000000;
 }
 .post_member {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 9px;
+
+  color: #000000;
+
   margin-top: 25px;
   align-self: end;
   display: flex;

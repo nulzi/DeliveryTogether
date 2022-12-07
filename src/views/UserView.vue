@@ -3,21 +3,25 @@
     <navBar></navBar>
     <div class="userView_content">
       <div class="userView_user">
-        <div class="userView_circle">
-          <img src="../assets/user.png" alt="" />
+        <div id="profile" class="userView_circle"></div>
+        <div class="userView_name">
+          {{ this.$store.state.user.userDTO.nickname }}
         </div>
-        <div class="userView_name">김태영</div>
       </div>
     </div>
-    <div class="userView_tag_container">
-      <locationTag></locationTag>
-      <div class="userView_member">
+    <div
+      v-for="(tag, i) in this.$store.state.user.tags"
+      :key="i"
+      class="userView_tag_container"
+    >
+      <locationTag :tag="tag"></locationTag>
+      <!-- <div class="userView_member">
         <img src="../assets/user.png" alt="" width="16" height="16" />
         600명
-      </div>
+      </div> -->
     </div>
     <div class="userView_floatingButton_container">
-      <router-link class="userView_floatingButton_button" to="/user">
+      <router-link class="userView_floatingButton_button" to="/userUpdate">
         <img src="../assets/pencil.png" alt="" />
       </router-link>
     </div>
@@ -29,15 +33,33 @@ import navBar from '../components/navBar.vue';
 import locationTag from '../components/locationTag.vue';
 
 export default {
-  name: 'user',
+  name: 'UserView',
+  data() {
+    return {
+      profile_image: '',
+    };
+  },
   components: {
     navBar,
     locationTag,
+  },
+  methods: {
+    setProfile() {
+      const profile = document.getElementById('profile');
+      profile.style.backgroundImage = this.$store.state.user.profile_image;
+    },
+  },
+  mounted() {
+    this.setProfile();
   },
 };
 </script>
 
 <style>
+.userView_container {
+  min-width: 360px;
+  width: 100vw;
+}
 .userView_user {
   font-family: 'Inter';
   font-style: normal;
@@ -61,18 +83,19 @@ export default {
   /* left: 118px; */
   /* top: 70px; */
 
-  background: #020715;
+  background: #020715 no-repeat center;
+  background-image: url('../assets/user.png');
   border-radius: 63px;
 }
 .userView_tag_container {
-  margin: 30px auto 0px;
+  margin: 20px auto 0px;
   padding: 0px 8px 0px 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 275px;
   height: 57px;
-  background: rgba(255, 255, 204, 0.9);
+  background: rgba(241, 225, 191, 0.9);
   border-radius: 10px;
 }
 .userView_floatingButton_container {

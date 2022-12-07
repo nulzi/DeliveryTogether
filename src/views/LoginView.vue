@@ -1,19 +1,27 @@
 <template>
-  <div class="home_main">
-    <img class="home_logo" src="../assets/logo.png" alt="" />
-    <p class="home_title">"시켜요 같이"</p>
-    <button class="home_login_button">
-      <div class="home_btn_content">
+  <div class="login_main">
+    <img class="login_logo" src="../assets/logo.png" alt="" />
+    <p class="login_title">"시켜요 같이"</p>
+    <button class="login_login_button" @click="doLogin">
+      <div class="login_btn_content">
         <img
-          class="home_chat_img"
+          class="login_chat_img"
           src="../assets/Chat.png"
           alt=""
           width="26"
           height="26"
         />
         카카오톡으로 로그인하기
-      </div>
-    </button>
+      </div></button
+    ><br />
+    <button @click="test1">test1</button><br />
+    <button @click="test2">test2</button><br />
+    <button @click="test3">test3</button><br />
+    <a
+      href="https://kauth.kakao.com/oauth/authorize?client_id=71e0a176033c8ff1373036d34e7a32ac&redirect_uri=http://localhost:8080/auth/kakao/callback&response_type=code"
+    >
+      카카오
+    </a>
   </div>
 </template>
 
@@ -21,8 +29,22 @@
 // @ is an alias to /src
 
 export default {
-  name: 'HomeView',
+  name: 'LoginView',
   components: {},
+  methods: {
+    doLogin() {
+      this.$store.dispatch('doLogin');
+    },
+    test1() {
+      this.$store.dispatch('test1');
+    },
+    test2() {
+      this.$store.dispatch('test2');
+    },
+    test3() {
+      this.$store.dispatch('test3');
+    },
+  },
 };
 </script>
 
@@ -31,18 +53,19 @@ export default {
   margin: 0;
   padding: 0;
 }
-.home_main {
+.login_main {
   text-align: center;
   /* frame */
 
   /* position: relative; */
-  width: 360px;
+  min-width: 360px;
+  width: 100vw;
   height: 640px;
 
   background: #f9f9f9;
   border-radius: 8px;
 }
-.home_logo {
+.login_logo {
   /* logo */
 
   /* position: absolute; */
@@ -52,7 +75,7 @@ export default {
   margin-top: 102px;
   /* top: 102px; */
 }
-.home_title {
+.login_title {
   /* “시켜요 같이” */
 
   /* position: absolute; */
@@ -73,7 +96,7 @@ export default {
 
   color: #ff9900;
 }
-.home_login_button {
+.login_login_button {
   /* position: absolute; */
   width: 298.1px;
   height: 40.48px;
@@ -83,13 +106,13 @@ export default {
   background: #ffea32;
   border-radius: 5px;
 }
-.home_btn_content {
+.login_btn_content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0px 73px 0px 8px;
 }
-.home_chat_img {
+.login_chat_img {
   border-right: 1px solid gray;
   padding-right: 6.5px;
 }

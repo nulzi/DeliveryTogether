@@ -2,7 +2,7 @@
   <div class="addView_container">
     <navBar></navBar>
     <div class="addView_content">
-      <form action="">
+      <form action="" method="POST">
         제목<br />
         <input
           class="addView_title"
@@ -12,7 +12,7 @@
           required
         />
         태그<br />
-        <select class="addView_tag" name="tags" id="tag-select">
+        <select class="addView_tag" name="tag" id="tag-select">
           <option v-for="(tag, i) in tags" :key="i" :value="tag">
             {{ tag }}
           </option>
@@ -56,7 +56,7 @@
 import navBar from '../components/navBar.vue';
 
 export default {
-  name: 'add',
+  name: 'AddView',
   components: {
     navBar,
   },
@@ -69,6 +69,10 @@ export default {
 </script>
 
 <style>
+.addView_container {
+  min-width: 360px;
+  width: 100vw;
+}
 .addView_content {
   padding: 20px 12px 10px;
 

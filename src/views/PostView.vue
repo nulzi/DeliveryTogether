@@ -3,28 +3,33 @@
     <navBar></navBar>
     <div class="postview_info">
       <div class="postview_title_container">
-        <div class="postview_title">치킨-굽네치킨</div>
-        <div class="postview_writer">작성자: 김태영</div>
+        <div class="postview_title">{{ this.$store.state.post.title }}</div>
+        <!-- <div class="postview_writer">작성자: {{ post.writer }}</div> -->
       </div>
       <hr />
       <div class="postview_content">
-        안녕하세요~ 지금 배가 고파서 치킨 시켜먹을 사람 구합니다. 저는 1기숙사
-        살고 있구요. 2기숙사에 사시는 분도 같이 주문해도 좋아요.
+        {{ this.$store.state.post.postdescribe }}
       </div>
-      <img class="postview_food_img" src="../assets/chicken-big.png" alt="" />
+      <img
+        class="postview_food_img"
+        :src="this.$store.state.post.picture"
+        alt=""
+      />
       <div class="postview_detail_container">
-        <div class="postview_detail">
+        <!-- <div class="postview_detail">
           가게 정보
-          <a class="postview_info_url" href="">http://dkdkdkdkd/dkdkd/dkdk</a>
-        </div>
+          <a class="postview_info_url" href="">{{ post.restaurant }}</a>
+        </div> -->
         <div class="postview_detail">
           채팅방 정보
-          <a class="postview_info_url" href="">http://dkdkdkdkd/dkdkd/dkdk</a>
+          <a class="postview_info_url" href="">{{
+            this.$store.state.post.storeUrl
+          }}</a>
         </div>
         <div class="postview_detail">
           모집 인원
           <div class="postview_member_img_container">
-            <img
+            <!-- <img
               v-for="(member, index) in this.members"
               :key="index"
               class="postview_member_img"
@@ -35,11 +40,19 @@
               class="postview_member_img"
               src="../assets/member-circle-red.png"
               alt=""
-            />
+            /> -->
+            {{ this.$store.state.post.countNum }}/4 명
           </div>
         </div>
       </div>
-      <button class="postview_button">같이하기</button>
+      <button
+        class="postview_button"
+        @click="postTogether(this.$store.state.post.storeUrl)"
+      >
+        <!-- <a :href="post.chat"> -->
+        같이하기
+        <!-- </a> -->
+      </button>
     </div>
   </div>
 </template>
@@ -48,19 +61,41 @@
 import navBar from '../components/navBar.vue';
 
 export default {
-  name: 'post',
+  name: 'PostView',
   components: {
     navBar,
   },
   data() {
     return {
-      members: [0, 0, 0],
+      // members: [0, 0, 0],
+      // post: {},
     };
+  },
+  methods: {
+    // setPost() {
+    //   for (const post of this.$store.state.post) {
+    //     if (post.tag == this.$route.params.tag) {
+    //       this.post = post.posts.find(
+    //         (element) => element.post_id == this.$route.params.post_id
+    //       );
+    //     }
+    //   }
+    // },
+    postTogether(chatUrl) {
+      this.$store.dispatch('postTogether', chatUrl);
+    },
+  },
+  created() {
+    // this.setPost();
   },
 };
 </script>
 
 <style>
+.postview_container {
+  min-width: 360px;
+  width: 100vw;
+}
 .postview_info {
   padding: 14px 10px 10px;
   box-sizing: border-box;
@@ -154,5 +189,6 @@ export default {
   width: 290px;
   height: 190px;
   align-self: center;
+  border-radius: 5px;
 }
 </style>

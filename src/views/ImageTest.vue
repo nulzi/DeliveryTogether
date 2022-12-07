@@ -2,22 +2,18 @@
   <div class="imageView_container">
     <navBar></navBar>
     <p class="imageView_desc">이미지를 클릭하면 다음으로 넘어갑니다.</p>
-    <div
-      class="imageView_content"
-      v-for="(food, i) in this.$store.state.foods"
-      :key="i"
-    >
-      <div class="imageView_food">{{ food.type }}</div>
-      <div class="imageView_images">
-        <img
-          class="imageView_image"
-          v-for="(url, j) in food.images"
-          :key="j"
-          :src="url"
-          alt=""
-          @click="nextPage(url)"
-        />
-      </div>
+    <div class="imageView_content">
+      <!-- <div class="imageView_food">{{ food.type }}</div> -->
+      <!-- <div class="imageView_images"> -->
+      <img
+        class="imageView_image"
+        v-for="(food, i) in this.$store.state.foods_test"
+        :key="i"
+        :src="food"
+        alt=""
+        @click="nextPage(food)"
+      />
+      <!-- </div> -->
     </div>
   </div>
 </template>
@@ -55,7 +51,12 @@ export default {
   color: #969191;
 }
 .imageView_content {
-  margin: 15px 10px 10px;
+  margin: 15px auto 10px;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* flex-wrap: nowrap; */
+  min-width: 360px;
+  width: 30vw;
 }
 .imageView_food {
   padding: 2px 0px;
@@ -118,5 +119,6 @@ export default {
   margin: 0px 5px;
   width: 50px;
   height: 95px;
+  border-radius: 5px;
 }
 </style>
